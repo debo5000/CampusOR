@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, trusted } from 'mongoose';
 
 ////////////////////////-----------QUEUE ----------------
 export interface IQueue extends Document {
@@ -21,14 +21,15 @@ const queueSchema = new Schema<IQueue>({
   nextSequence: {//in queue - next available sequence number
       type: Number,
       required: true,
-      default: 1,
+      default: 1,  
+      //Monotonically increasing sequence for token generation
     },
 }, {
   timestamps: true // Automatically adds createdAt and updatedAt fields
 });
 
-queueSchema.index({ name: 1 });
-queueSchema.index({ isActive: 1 });
+queueSchema.index({ name: 1 }, {unique:true}); //Queue name should be unique
+queueSchema.index({ isActive: 1 });  //todo for future issue
 
 
 //////-------------------------------------------------TOKEN ---------------------------------------------
