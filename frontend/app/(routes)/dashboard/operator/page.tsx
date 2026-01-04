@@ -1,10 +1,10 @@
 "use client";
 
-import { mockQueue, mockTokens } from "@/app/components/operator/MockData";
-import NowServingCard from "@/app/components/operator/NowServingCard";
-import OperatorControls from "@/app/components/operator/OperatorControls";
-import OperatorHeader from "@/app/components/operator/OperatorHeader";
-import TokenList from "@/app/components/operator/TokenList";
+import { mockQueue, mockTokens } from "@/operator/MockData";
+import NowServingCard from "@/operator/NowServingCard";
+import OperatorControls from "@/operator/OperatorControls";
+import OperatorHeader from "@/operator/OperatorHeader";
+import TokenList from "@/operator/TokenList";
 import { useState } from "react";
 
 export default function OperatorDashboard() {
